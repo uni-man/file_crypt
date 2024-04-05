@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>File Crypt v1.0</title>
+    <script type="module" src="/main.js" defer></script>
+  </head>
+
+  <body>
+    <div id="opening-banner">
+      <img src="./assets/opening-banner.png" Alt="Splash" draggable="false">
+
+      <div class="wrapper">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+      </div>
+    </div>
+  
+    <div id="splash-screen">
+      <img src="./assets/splash-screen.png" Alt="Splash" draggable="false">
+      <button id="close-sp">Continue</button>
+    </div>
+    <div id="contact-screen">
+      <img src="./assets/contact-screen.png" Alt="Contact" draggable="false">
+      <button id="close-contact">Continue</button>
+    </div>
+
+    <div class="container">
+      <div class="upload-box">
+        <a id="input-file"><span hidden>Input Label</span></a>
+      </div>
+
+      <div class="key-input">
+        <img src="./assets/key.svg" alt="">
+        <input type="text" name="key" placeholder="Enter key">
+      </div>
+
+      <div class="btn-box">
+        <button id="enc-btn" class="encrypt">Encrypt Now</button>
+        <button id="dec-btn" class="decrypt">Decrypt Now</button>
+      </div>
+
+      <p id="notify">Please wait... Decrypting your file now</p>
+    </div>
+
+    <div id="footer">
+      <p>Crafted @</p>
+      <a href="https://uniman.xyz/" target="_blank"><span hidden>uniman.xyz</span></a>
+    </div>
+  </body>
+</html>
