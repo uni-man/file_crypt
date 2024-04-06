@@ -27,11 +27,24 @@ fn decrypt(filepath: &str, secret_key: &str) -> String {
 fn main() {
     tauri::Builder::default()
     .setup(|app| {
-        let w = app.windows();
-        let w2 = w.get("main").unwrap();
-        let x = w2.inner_size().unwrap();
-        let height = x.height;
-        Window::set_size(w2, Size::Logical(LogicalSize {width: 490.0, height: height as f64 * 0.75})).unwrap();
+        let windows = app.windows();
+        let result = windows.get("main");
+        if let None = result {
+            println!("Main window not found");
+            return Ok(());
+        }
+
+        let window = result.unwrap();
+        let result = window.inner_size();
+        if let Err(error) = result {
+            println!("{:?}", error);
+            return Ok(());
+        }
+
+        let height = result.unwrap().height;
+        let _ = Window::set_size(window, Size::Logical(LogicalSize {width: 490.0, height: height as f64 * 0.75}));
+        let _ = Window::set_max_size(window, Some(Size::Logical(LogicalSize { width: 490.0, height: 780.0 })));
+
         Ok(())
     })
     .invoke_handler(tauri::generate_handler![encrypt, decrypt])
