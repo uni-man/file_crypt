@@ -42,8 +42,8 @@ fn main() {
         }
 
         let height = result.unwrap().height;
-        let _ = Window::set_size(window, Size::Logical(LogicalSize {width: 490.0, height: 780.0}));
-        let _ = Window::set_max_size(window, Some(Size::Logical(LogicalSize { width: 490.0, height: height as f64 * 0.75 })));
+        let _ = Window::set_size(window, Size::Logical(LogicalSize {width: 490.0, height: height as f64 * 0.75}));
+        let _ = Window::set_max_size(window, Some(Size::Logical(LogicalSize { width: 490.0, height: 780.0 })));
 
         Ok(())
     })
